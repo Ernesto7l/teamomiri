@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Para Miri 💖</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: black;
+      overflow: hidden;
+      font-family: 'Courier New', monospace;
+      color: white;
+    }
+
+    .text {
+      position: absolute;
+      font-size: 1.5em;
+      color: rgba(255,192,203,0.7);
+      pointer-events: none;
+      animation: fade 3s ease-out forwards;
+      user-select: none;
+    }
+
+    @keyframes fade {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(2); opacity: 0; }
+    }
+
+    .center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 3em;
+      color: white;
+      text-align: center;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="center" id="mainText">Te amo</div>
+
+  <script>
+    const frases = ["Te amo", "Miri", "Con todo mi corazón"];
+    let index = 0;
+
+    document.addEventListener("click", function(e) {
+      index = (index + 1) % frases.length;
+      document.getElementById("mainText").textContent = frases[index];
+
+      for (let i = 0; i < 10; i++) {
+        const text = document.createElement("div");
+        text.className = "text";
+        text.style.left = Math.random() * window.innerWidth + "px";
+        text.style.top = Math.random() * window.innerHeight + "px";
+        text.textContent = "Te amo";
+        document.body.appendChild(text);
+
+        setTimeout(() => {
+          text.remove();
+        }, 3000);
+      }
+    });
+  </script>
+</body>
+</html>
