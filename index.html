@@ -47,21 +47,21 @@
   <script>
     const frases = ["Te amo", "Miri", "Con todo mi corazón"];
     let index = 0;
-    let fijo = false;
+    let finalizado = false;
 
     document.addEventListener("click", function(e) {
-      if (!fijo) {
+      if (!finalizado) {
         index++;
         if (index < frases.length) {
           document.getElementById("mainText").textContent = frases[index];
         } else {
           document.getElementById("mainText").textContent = "Te amo";
-          fijo = true;
+          finalizado = true;
         }
       }
 
-      // Generar 30 "te amo" flotantes
-      for (let i = 0; i < 30; i++) {
+      // Generar 30 "te amo" flotantes por clic
+      for (let i = 0; i < 50; i++) {
         const text = document.createElement("div");
         text.className = "text";
         text.style.left = Math.random() * window.innerWidth + "px";
