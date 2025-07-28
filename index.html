@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Para Miri 💖</title>
+  <title>Te amo 💖</title>
   <style>
     body {
       margin: 0;
@@ -47,12 +47,21 @@
   <script>
     const frases = ["Te amo", "Miri", "Con todo mi corazón"];
     let index = 0;
+    let fijo = false;
 
     document.addEventListener("click", function(e) {
-      index = (index + 1) % frases.length;
-      document.getElementById("mainText").textContent = frases[index];
+      if (!fijo) {
+        index++;
+        if (index < frases.length) {
+          document.getElementById("mainText").textContent = frases[index];
+        } else {
+          document.getElementById("mainText").textContent = "Te amo";
+          fijo = true;
+        }
+      }
 
-      for (let i = 0; i < 10; i++) {
+      // Generar 30 "te amo" flotantes
+      for (let i = 0; i < 30; i++) {
         const text = document.createElement("div");
         text.className = "text";
         text.style.left = Math.random() * window.innerWidth + "px";
